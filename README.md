@@ -40,7 +40,7 @@ This project simulates the functionality of a coffee machine, allowing users to 
 
 ## Additional Documents:
 <div align="center">
-  <table>
+  <table border="0">
     <tr>
       <td align="center"><b>.xlsx</b> for activity planning<br>
         <a href="https://iteso01-my.sharepoint.com/:x:/g/personal/ximena_isaac_iteso_mx/ETMmDvcbzeZHqQav5zfASLgBkMVAIMRTFPJ1O2mdWIvK2A?email=ximena.isaac%40iteso.mx&e=81gTWw">
