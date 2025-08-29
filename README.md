@@ -39,28 +39,31 @@ This project simulates the functionality of a coffee machine, allowing users to 
 <br>
 
 ## Additional Documents:
+
 <div align="center">
   <table>
     <tr>
-      <td align="center"><b>.xlsx</b> for activity planning<br>
-        <a href="https://iteso01-my.sharepoint.com/:x:/g/personal/ximena_isaac_iteso_mx/ETMmDvcbzeZHqQav5zfASLgBkMVAIMRTFPJ1O2mdWIvK2A?email=ximena.isaac%40iteso.mx&e=81gTWw">
-          <img src="https://img.icons8.com/color/48/000000/microsoft-excel-2019.png" alt="Excel"/>
+      <td align="center" width="200px">
+        <b>.xlsx</b> for activity planning<br>
+        <a href="YOUR_EXCEL_LINK">
+          <img src="https://img.icons8.com/color/64/microsoft-excel-2019.png" alt="Excel"/>
         </a>
       </td>
-            <td align="center"><b>.docx</b> WorkSpace<br>
-        <a href="https://docs.google.com/document/d/1ilDolStLEwN86UfzgcZOOWeJsDL3MNX-WicwDoXbGHk/edit?tab=t.0">
-          <img src="https://img.icons8.com/color/48/000000/google-docs.png" alt="Google Docs"/>
+      <td align="center" width="200px">
+        <b>.docx</b> WorkSpace<br>
+        <a href="YOUR_DOCS_LINK">
+          <img src="https://img.icons8.com/color/64/google-docs.png" alt="Google Docs"/>
         </a>
       </td>
-      <td align="center"><b>.pdf</b> with requirements<br>
-        <a href="https://docs.google.com/document/d/1ilDolStLEwN86UfzgcZOOWeJsDL3MNX-WicwDoXbGHk/edit?tab=t.0">
-          <img src="https://img.icons8.com/color/48/000000/pdf.png" alt="PDF"/>
+      <td align="center" width="200px">
+        <b>.pdf</b> with requirements<br>
+        <a href="YOUR_PDF_LINK">
+          <img src="https://img.icons8.com/color/64/pdf.png" alt="PDF"/>
         </a>
       </td>
     </tr>
   </table>
 </div>
-
 
 
 
