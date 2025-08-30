@@ -83,17 +83,28 @@ def refill_coffee_beans(stock):
         stock.stock["coffee_beans"] += refill_amount
         print(f"Refilled coffee beans by {refill_amount}g.")
 
+def refill_cups(stock):
+    current = stock.stock["cups"]
+    max_capacity = 100
+    if current == max_capacity:
+        print("Cups tank is already full.")
+    else:
+        refill_amount = max_capacity - current
+        stock.stock["cups"] += refill_amount
+        print(f"Refilled cups by {refill_amount} units.")
+
 def fill_all(stock):
     refill_water(stock)
     refill_milk(stock)
     refill_coffee_beans(stock)
+    refill_cups(stock)
 
 def fill_machine(stock):
     # Function to fill the machine with ingredients
     print("Current stock:", stock.stock)
     print("\nWhat would you like to refill?")
-    print("1.-Water 2.-Milk 3.-Coffe Beans 4.-Fill All")
-    choice = input("Enter your choice (1-4): ")
+    print("1.-Water 2.-Milk 3.-Coffe Beans 4.-Cups 5.-Fill All")
+    choice = input("Enter your choice (1-5): ")
     if choice == "1":
         refill_water(stock)
         print("Water refill complete.", stock.stock)
@@ -102,8 +113,11 @@ def fill_machine(stock):
         print("Milk refill complete.", stock.stock)
     elif choice == "3":
         refill_coffee_beans(stock)
-        print("Coffee beans refill complete.", stock.stock)
+        print("Coffee beans refill complete.", stock.stock)  
     elif choice == "4":
+        refill_cups(stock)
+        print("Cups refill complete.", stock.stock)
+    elif choice == "5":
         fill_all(stock)
         print("All ingredients refill complete.", stock.stock)
     else:
@@ -128,6 +142,7 @@ def main():
             display_menu()
             coffee_type = get_coffee_selection()
             size = get_size()
+            stock.stock["cups"] -= 1                                        # Decrease cup count when a coffee is made
 
             coffee = Coffee(coffee_type, size)                                 # Create the coffee object based on user selection
             print(f"\nYou selected a {size} {coffee_type}.")
@@ -149,6 +164,9 @@ def main():
             
         elif main_choice == "2":                                             # Refill ingredients on stock
             fill_machine(stock)
+
+        elif main_choice == "5":                                             # Refill ingredients on stock
+            break
 
 if __name__ == "__main__":
     main()

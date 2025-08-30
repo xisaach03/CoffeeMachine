@@ -24,6 +24,7 @@ class StockIngredients:
             "water": 2000,                                          # Unit: mililiters
             "milk": 1000,                                           # Unit: mililiters
             "coffee_beans": 500,                                    # Unit: grams
+            "cups": 100,                                            # Unit: units
         }
 
     def check_ingredients(self, ingredients_needed):
