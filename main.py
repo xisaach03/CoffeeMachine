@@ -29,6 +29,21 @@ def get_coffee_selection(): espresso, latte, capuccino
 
 def get_size(): small, medium, large
 '''
+def display_menu():
+    print("\nSelect the type of coffee:")
+    print("1. Espresso")
+    print("2. Latte")
+    print("3. Capuccino")
+
+def get_coffee_selection():
+    choice = input("Enter your choice (1, 2, 3): ")
+    return {"1": "espresso", "2": "latte", "3": "capuccino"}.get(choice, "espresso")
+
+def get_size():
+    return input("Enter size (small, medium, large): ").lower()
+
+
+
 
 # ------------------------------------------------------------------------------------------------------------------------------- #
 #                                          Simulation of the coffee machine interaction                                           #

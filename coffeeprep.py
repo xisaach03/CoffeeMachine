@@ -60,10 +60,10 @@ class Coffee:
     '''
     def default_ingredients(self):
         base_ingredients = {
-            "espresso": {"water": 250, "milk": 0, "coffee_beans": 16, "price": 4},
-            "latte": {"water": 350, "milk": 75, "coffee_beans": 20}, "price": 7,
-            "capuccino": {"water": 200, "milk": 100, "coffee_beans": 12, "price": 6}
-        }
+            "espresso":     {"water": 250, "milk": 0, "coffee_beans": 16, "price": 4},
+            "latte":        {"water": 350, "milk": 75, "coffee_beans": 20, "price": 7},
+            "capuccino":    {"water": 200, "milk": 100, "coffee_beans": 12, "price": 6}
+            }
         
         recipe = base_ingredients.get(self.type)
         if not recipe:
