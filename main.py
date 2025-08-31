@@ -124,7 +124,35 @@ def fill_machine(stock):
         print("Invalid choice.")
         fill_machine(stock)
 
-
+def withdraw_money(money):
+    if money > 0:
+        print(f"Current balance: ${money:.2f}")
+        donate = input("Would you like to donate? (yes/no): ").lower()
+        if donate == "yes":
+            donation_amount = float(input("Enter donation amount: "))
+            if donation_amount > money:
+                print("Insufficient funds for donation.")
+                return money
+            else:
+                money -= donation_amount
+                print(f"Thank you for your donation of ${donation_amount:.2f}.")
+                return money
+        elif donate == "no":
+         print("How much would you like to withdraw?")
+         withdraw = input("Enter amount to withdraw: ")
+         if  float(withdraw) > money:
+             print("Insufficient funds.")
+             return money
+         else:
+             money -= float(withdraw)
+             print(f"Withdrew ${float(withdraw):.2f}. Current amount: ${money:.2f}")
+             return money
+        else:
+            print("Invalid input.")
+            return money
+    else:
+        print("No money to withdraw.")
+        return money
 
 # ------------------------------------------------------------------------------------------------------------------------------- #
 #                                          Simulation of the coffee machine interaction                                           #
@@ -142,9 +170,11 @@ def main():
             display_menu()
             coffee_type = get_coffee_selection()
             size = get_size()
-            stock.stock["cups"] -= 1                                        # Decrease cup count when a coffee is made
+            stock.stock["cups"] -= 1                                         # Decrease cup count when a coffee is made
+                                                      
 
-            coffee = Coffee(coffee_type, size)                                 # Create the coffee object based on user selection
+            coffee = Coffee(coffee_type, size)  
+            money += coffee.price                                  # Create the coffee object based on user selection
             print(f"\nYou selected a {size} {coffee_type}.")
 
             ingredients_needed = coffee.ingredients                          # Check if ingredients are available for the selected coffee
@@ -164,6 +194,10 @@ def main():
             
         elif main_choice == "2":                                             # Refill ingredients on stock
             fill_machine(stock)
+
+        elif main_choice == "3": 
+           money = withdraw_money(money)                                            # Display current stock
+            
 
         elif main_choice == "5":                                             # Refill ingredients on stock
             break
