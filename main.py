@@ -180,8 +180,10 @@ def show_data(stock, money, sells, sells_unit_cost):                            
     print("Current stock:", stock.stock)
     print(f"Current balance: ${money:.2f}")
     print("Sales history:")
-    for i in range(0, min(len(sells)//2, len(sells_unit_cost))):   #Using min so we don't go out of bounds
-        print(f" - {sells[2*i]} ({sells[2*i+1]}) --- {sells_unit_cost[i]}")   
+    for i in range(0, min(len(sells), len(sells_unit_cost))):      
+     coffee_type, size = sells[i]                                  #Unpacking tuple
+     print(f" - {coffee_type} ({size}) --- {sells_unit_cost[i]}")
+
     print(f"\nTotal sales: {len(sells_unit_cost)}")
 
 
@@ -208,8 +210,8 @@ def main():
              continue
             else:
              stock.stock["cups"] -= 1                               # Decrease cup count when a coffee is made
-            sells.append(coffee_type)
-            sells.append(size)                                       
+  
+            sells.append((coffee_type, size))                                   
                                                       
 
             coffee = Coffee(coffee_type, size)                          # Create the coffee object based on user selection
