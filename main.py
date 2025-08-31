@@ -225,12 +225,7 @@ def main():
                 print(f"\nPreparing your {size} {coffee_type}...")
                 stock.take_ingredients(ingredients_needed)                   # Reduce the stock based on selected coffee ingredients
                 print(f"Your {size} {coffee_type} is ready!")
-                print("Updated stock:", stock.stock)
-
-            #another_coffee = input("Do you want to make another coffee? (yes/no): ").lower()
-            #if another_coffee == "no":
-            #    print("Thank you for using the coffee machine!")
-               # break
+     
             
         elif main_choice == "2":                                             # Refill ingredients on stock
             fill_machine(stock)
