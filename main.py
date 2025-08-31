@@ -29,7 +29,7 @@ def get_coffee_selection(): espresso, latte, capuccino
 
 def get_size(): small, medium, large
 '''
-def display_main_menu():
+def display_main_menu():                                                          # Main menu
     print("\n" + "="*50)
     print("WELCOME TO THE COFFEE MACHINE ")
     print("="*50)
@@ -53,44 +53,44 @@ def get_coffee_selection():
 def get_size():
     return input("Enter size (small, medium, large): ").lower()
 
-def refill_water(stock):
+def refill_water(stock):                                           # Refill water tank
     current = stock.stock["water"]
     max_capacity = 2000
     if current == 2000:
         print("Water tank is already full.")
-    else:
+    else:                                                         # Decrease the max capacity with the current and refill amount
         refill_amount = max_capacity - current
         stock.stock["water"] += refill_amount
         print(f"Refilled water by {refill_amount}ml.")
 
-def refill_milk(stock):
+def refill_milk(stock):                                           # Refill milk tank
     current = stock.stock["milk"]
     max_capacity = 1000
     if current == max_capacity:
         print("Milk tank is already full.")
-    else:
+    else:                                                         # Decrease the max capacity with the current and refill amount
         refill_amount = max_capacity - current
         stock.stock["milk"] += refill_amount
         print(f"Refilled milk by {refill_amount}ml.")
 
-def refill_coffee_beans(stock):
+def refill_coffee_beans(stock):                                   # Refill coffee beans tank
     current = stock.stock["coffee_beans"]
     max_capacity = 500
     if current == max_capacity:
         print("Coffee beans tank is already full.")
     else:
         refill_amount = max_capacity - current
-        stock.stock["coffee_beans"] += refill_amount
+        stock.stock["coffee_beans"] += refill_amount             # Decrease the max capacity with the current and refill amount
         print(f"Refilled coffee beans by {refill_amount}g.")
 
-def refill_cups(stock):
+def refill_cups(stock):                                          # Refill cups tank
     current = stock.stock["cups"]
     max_capacity = 100
     if current == max_capacity:
         print("Cups tank is already full.")
     else:
-        refill_amount = max_capacity - current
-        stock.stock["cups"] += refill_amount
+        refill_amount = max_capacity - current      
+        stock.stock["cups"] += refill_amount                 
         print(f"Refilled cups by {refill_amount} units.")
 
 def fill_all(stock):
@@ -107,7 +107,7 @@ def fill_machine(stock):
     choice = input("Enter your choice (1-5): ")
     if choice == "1":
         refill_water(stock)
-        print("Water refill complete.", stock.stock)
+        print("Water refill complete.", stock.stock)                    # Show the stock everytime is refilled the machine
     elif choice == "2":
         refill_milk(stock)
         print("Milk refill complete.", stock.stock)
@@ -122,19 +122,19 @@ def fill_machine(stock):
         print("All ingredients refill complete.", stock.stock)
     else:
         print("Invalid choice.")
-        fill_machine(stock)
+        fill_machine(stock)                                           # Recursion to choose a correct option
 
-def withdraw_money(money):
+def withdraw_money(money):                                            # Withdraw money from the machine
     if money > 0:
         print(f"Current balance: ${money:.2f}")
-        donate = input("Would you like to donate? (yes/no): ").lower()
+        donate = input("Would you like to donate? (yes/no): ").lower()    # Case of donation
         if donate == "yes":
             donation_amount = float(input("Enter donation amount: "))
             if donation_amount > money:
                 print("Insufficient funds for donation.")
                 return money
             else:
-                money -= donation_amount
+                money -= donation_amount                               # Change the money quantity based on the donation amount
                 print(f"Thank you for your donation of ${donation_amount:.2f}.")
                 return money
         elif donate == "no":
@@ -144,7 +144,7 @@ def withdraw_money(money):
              print("Insufficient funds.")
              return money
          else:
-             money -= float(withdraw)
+             money -= float(withdraw)                                # Change the money quantity based on the withdrawal amount
              print(f"Withdrew ${float(withdraw):.2f}. Current amount: ${money:.2f}")
              return money
         else:
