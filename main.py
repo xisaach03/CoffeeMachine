@@ -51,7 +51,13 @@ def get_coffee_selection():
     return {"1": "espresso", "2": "latte", "3": "capuccino"}.get(choice, "espresso")
 
 def get_size():
-    return input("Enter size (small, medium, large): ").lower()
+    valid_sizes = {"small", "medium", "large"}
+    while True:
+        size = input("Enter size (small, medium, large): ").lower()
+        if size in valid_sizes:
+            return size
+        else:
+            print("Invalid size. Please enter small, medium, or large.")
 
 def refill_water(stock):                                           # Refill water tank
     current = stock.stock["water"]
@@ -129,19 +135,35 @@ def withdraw_money(money):                                            # Withdraw
         print(f"Current balance: ${money:.2f}")
         donate = input("Would you like to donate? (yes/no): ").lower()    # Case of donation
         if donate == "yes":
-            donation_amount = float(input("Enter donation amount: "))
-            if donation_amount > money:
+             try:
+               donation_amount = float(input("Enter donation amount: "))
+             except ValueError:
+              print("Invalid input, please enter a number.")
+              return money
+           
+             if donation_amount > money:
                 print("Insufficient funds for donation.")
                 return money
-            else:
+             elif donation_amount < 0:
+                print("Invalid input, please enter a positive number.")
+                return money
+             else:
                 money -= donation_amount                               # Change the money quantity based on the donation amount
                 print(f"Thank you for your donation of ${donation_amount:.2f}.")
                 return money
         elif donate == "no":
          print("How much would you like to withdraw?")
-         withdraw = input("Enter amount to withdraw: ")
+         try:
+          withdraw = float(input("Enter amount to withdraw: "))
+         except ValueError:
+          print("Invalid input, please enter a number.")
+          return money
+
          if  float(withdraw) > money:
              print("Insufficient funds.")
+             return money
+         elif float(withdraw) < 0:
+             print("Invalid input, please enter a positive number.")
              return money
          else:
              money -= float(withdraw)                                # Change the money quantity based on the withdrawal amount
@@ -158,8 +180,10 @@ def show_data(stock, money, sells, sells_unit_cost):                            
     print("Current stock:", stock.stock)
     print(f"Current balance: ${money:.2f}")
     print("Sales history:")
-    for i in range(0, len(sells), 2):
-        print(f" - {sells[i]} ({sells[i+1]})---{sells_unit_cost[i//2]}")           #Print the firts two index of sells and the half of the index to have the correct price
+    for i in range(0, min(len(sells)//2, len(sells_unit_cost))):   #Using min so we don't go out of bounds
+        print(f" - {sells[2*i]} ({sells[2*i+1]}) --- {sells_unit_cost[i]}")   
+    print(f"\nTotal sales: {len(sells_unit_cost)}")
+
 
 # ------------------------------------------------------------------------------------------------------------------------------- #
 #                                          Simulation of the coffee machine interaction                                           #
@@ -179,7 +203,11 @@ def main():
             display_menu()
             coffee_type = get_coffee_selection()
             size = get_size()
-            stock.stock["cups"] -= 1                                # Decrease cup count when a coffee is made
+            if stock.stock["cups"] <= 0:
+             print("No cups available. Please refill the machine.")
+             continue
+            else:
+             stock.stock["cups"] -= 1                               # Decrease cup count when a coffee is made
             sells.append(coffee_type)
             sells.append(size)                                       
                                                       
@@ -213,7 +241,8 @@ def main():
         elif main_choice == "4":                                             # Check data of sales
             show_data(stock, money, sells, sells_unit_cost)
 
-        elif main_choice == "5":                                             # Refill ingredients on stock
+        elif main_choice == "5":  
+            print("Thank you for using the coffee machine!")
             break
 
 if __name__ == "__main__":
