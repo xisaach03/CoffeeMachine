@@ -36,7 +36,7 @@ def display_main_menu():                                                        
     print("1.-Order Coffee")
     print("2.-Fill the Machine")
     print("3.-Withdraw Money")
-    print("4.-Check Status")
+    print("4.-Show data")
     print("5.-Exit")
     print("="*50)
 
@@ -154,12 +154,21 @@ def withdraw_money(money):                                            # Withdraw
         print("No money to withdraw.")
         return money
 
+def show_data(stock, money, sells, sells_unit_cost):                                                      # Show current stock and balance
+    print("Current stock:", stock.stock)
+    print(f"Current balance: ${money:.2f}")
+    print("Sales history:")
+    for i in range(0, len(sells), 2):
+        print(f" - {sells[i]} ({sells[i+1]})---{sells_unit_cost[i//2]}")           #Print the firts two index of sells and the half of the index to have the correct price
+
 # ------------------------------------------------------------------------------------------------------------------------------- #
 #                                          Simulation of the coffee machine interaction                                           #
 # ------------------------------------------------------------------------------------------------------------------------------- #
 
 def main():
     money = 0
+    sells = []                                                           # Representing the sells history
+    sells_unit_cost = []                                                 # Representing the sells unit cost history
     stock = StockIngredients()                                           # representing the stock of the coffee machine
     print("Initial stock:", stock.stock)                                 # Display initial stock
 
@@ -170,11 +179,14 @@ def main():
             display_menu()
             coffee_type = get_coffee_selection()
             size = get_size()
-            stock.stock["cups"] -= 1                                         # Decrease cup count when a coffee is made
+            stock.stock["cups"] -= 1                                # Decrease cup count when a coffee is made
+            sells.append(coffee_type)
+            sells.append(size)                                       
                                                       
 
-            coffee = Coffee(coffee_type, size)  
-            money += coffee.price                                  # Create the coffee object based on user selection
+            coffee = Coffee(coffee_type, size)                          # Create the coffee object based on user selection
+            sells_unit_cost.append(coffee.price)                        # Keep track of the unit cost of each sale
+            money += coffee.price                                       #Adding the unit cost of the drink to the total of sales
             print(f"\nYou selected a {size} {coffee_type}.")
 
             ingredients_needed = coffee.ingredients                          # Check if ingredients are available for the selected coffee
@@ -195,9 +207,11 @@ def main():
         elif main_choice == "2":                                             # Refill ingredients on stock
             fill_machine(stock)
 
-        elif main_choice == "3": 
-           money = withdraw_money(money)                                            # Display current stock
-            
+        elif main_choice == "3":
+           money = withdraw_money(money)                                    # Withdraw money from the machine
+
+        elif main_choice == "4":                                             # Check data of sales
+            show_data(stock, money, sells, sells_unit_cost)
 
         elif main_choice == "5":                                             # Refill ingredients on stock
             break
