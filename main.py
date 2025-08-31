@@ -239,6 +239,9 @@ def main():
         elif main_choice == "5":  
             print("Thank you for using the coffee machine!")
             break
+        else:
+            print("Invalid option. Please try again.")
+            continue
 
 if __name__ == "__main__":
     main()
