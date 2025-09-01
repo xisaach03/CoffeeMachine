@@ -41,7 +41,7 @@ This project simulates the functionality of a coffee machine, allowing users to 
 ## Additional Documents:
 
 <div align="center">
-  <table>
+  <table border="0">
     <tr>
       <td align="center" width="200px">
         <b>.xlsx</b> for activity planning<br>
