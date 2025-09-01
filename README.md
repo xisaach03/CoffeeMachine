@@ -15,27 +15,45 @@ This project simulates the functionality of a coffee machine, allowing users to 
 
 </div>
 
+<br>
+
+## GUI preview
+![GUI](assets/READMEimage.png)
+
 
 ## Prerequisites:
-1. To be defined later
+1. Python installed (verify)
       ```sh
-   git clone https://defineLater.com
-   ```
-2. To be defined later
-      ```sh
-   git clone https://defineLater.com
+   python --version
    ```
 
 ## Usage:
-1. To be defined later
+1. Clone the repository
     ```sh
-   git clone https://defineLater.com
+   git clone https://github.com/xisaach03/CoffeeMachine.git
    ```
-2. To be defined later
+2. Navigate into the project directory
       ```sh
-   git clone https://defineLater.com
+   cd CoffeeMachine
    ```
+3. Open a terminal in the project folder:
+      ```sh
+      cd path\to\CoffeeMachine
+      ```
+4. Run the program:
+      ```sh
+      python main.py
+      ```
 
+## Project Structure
+    
+  ```sh
+      CoffeeMachine/
+      ├─ main.py           # GUI and main program logic
+      ├─ coffeeprep.py     # Coffee and StockIngredients classes
+      └─ README.md         # Documentation
+  ```
+      
 <br>
 
 ## Additional Documents:
@@ -45,19 +63,19 @@ This project simulates the functionality of a coffee machine, allowing users to 
     <tr>
       <td align="center" width="200px">
         <b>.xlsx</b> for activity planning<br>
-        <a href="YOUR_EXCEL_LINK">
+        <a href="https://iteso01-my.sharepoint.com/:x:/g/personal/ximena_isaac_iteso_mx/ETMmDvcbzeZHqQav5zfASLgBZ5GO3FFAQJDqHpbSD4MIkg?e=hDRpMU">
           <img src="https://img.icons8.com/color/64/microsoft-excel-2019.png" alt="Excel"/>
         </a>
       </td>
       <td align="center" width="200px">
         <b>.docx</b> WorkSpace<br>
-        <a href="YOUR_DOCS_LINK">
-          <img src="https://img.icons8.com/color/64/google-docs.png" alt="Google Docs"/>
+        <a href="https://iteso01-my.sharepoint.com/:w:/g/personal/ximena_isaac_iteso_mx/EZeI3eNw_S9Kj6F8iolqbDQBwjFXhyAbKq7BBl4g5R9SdQ?e=eYEpnB">
+        <img src="https://img.icons8.com/color/64/microsoft-word-2019.png" alt="Word Document"/>
         </a>
       </td>
       <td align="center" width="200px">
         <b>.pdf</b> with requirements<br>
-        <a href="YOUR_PDF_LINK">
+        <a href="https://iteso01-my.sharepoint.com/:b:/g/personal/ximena_isaac_iteso_mx/EQBTUZwinL9MoxXs4lS7CFMBSTITwAkYBOTayBcMAdf1dQ?e=742PZC">
           <img src="https://img.icons8.com/color/64/pdf.png" alt="PDF"/>
         </a>
       </td>
